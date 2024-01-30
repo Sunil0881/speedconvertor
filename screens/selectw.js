@@ -34,11 +34,11 @@ const Selectw = () => {
       setResultw(WeightValue + ' ' + selectedWeightUnitf);
     } else if (selectedWeightUnitf === 'kg' && selectedWeightUnitt === 'lbs') {
       // Convert kilograms to pounds
-      const weightInPounds = (WeightValue * 2.20462).toFixed(2) + ' lbs';
+      const weightInPounds = (WeightValue * 2.20462).toFixed(5) + ' lbs';
       setResultw(weightInPounds);
     } else if (selectedWeightUnitf === 'lbs' && selectedWeightUnitt === 'kg') {
       // Convert pounds to kilograms
-      const weightInKilograms = (WeightValue / 2.20462).toFixed(2) + ' kg';
+      const weightInKilograms = (WeightValue / 2.20462).toFixed(5) + ' kg';
       setResultw(weightInKilograms);
     } else {
       // Default case when units are not matched
