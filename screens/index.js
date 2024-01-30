@@ -27,6 +27,7 @@ const Main = () => {
 
     return (
         <StyledView>
+            <StyledText className='text-center text-2xl pb-16'>Choose your option</StyledText>
               <TouchableOpacity
             style={{ backgroundColor: 'orange', borderRadius: 10, padding: 8, alignItems: 'center', marginHorizontal: 96, marginTop: 20 }} onPress={navigateToweight}>
             <StyledText style={{ color: 'white', fontSize: 18 }}>weight Conversion</StyledText>
