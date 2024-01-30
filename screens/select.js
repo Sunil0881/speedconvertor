@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 
 
 import { styled } from 'nativewind';
-import { withExpoSnack } from 'nativewind';
+
 
 const  StyledView = styled(View);
 const StyledText = styled(Text);
@@ -83,7 +83,7 @@ const Select = () => {
 
     const navigateToResultScreen = () => {
       // Navigate to 'ResultScreen' and pass the 'result' as a parameter
-      navigation.navigate('Final', { result  });
+      navigation.navigate('final', { result  });
     };
    
 
