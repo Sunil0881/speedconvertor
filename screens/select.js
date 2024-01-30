@@ -16,7 +16,9 @@ const StyledTextInput = styled(TextInput);
 const speedUnitOptions = [
     { label: 'Miles per hour (mph)', value: 'mph' },
     { label: 'Kilometers per hour (km/h)', value: 'km/h' },
+    { label: 'Meters per second (m/s)', value: 'm/s' },
   ];
+  
 
 
 
@@ -35,23 +37,49 @@ const Select = () => {
       calculateSpeed();
   }, [speedValue, selectedSpeedUnitf, selectedSpeedUnitt]);
 
-    function calculateSpeed() {
-        switch (selectedSpeedUnitf) {
-            case 'mph':
-                // Convert miles per hour to kilometers per hour
-                const speedInKmPerHour = (speedValue * 1.60934).toFixed(2) + ' km/h';
-                setResult(speedInKmPerHour);
-                
-                break;
-            case 'km/h':
-                // Convert kilometers per hour to miles per hour
-                const speedInMilesPerHour = (speedValue / 1.60934).toFixed(2) + ' mph';
-                setResult(speedInMilesPerHour);
-                
-                break;
-          
-        }
+  function calculateSpeed() {
+    if (selectedSpeedUnitf === selectedSpeedUnitt) {
+      // Display the same value if both speed units are the same
+      setResult(speedValue + ' ' + selectedSpeedUnitf);
+    } else if (selectedSpeedUnitf === 'mph' && selectedSpeedUnitt === 'km/h') {
+      // Convert miles per hour to kilometers per hour
+      const speedInKmPerHour = (speedValue * 0.00044704).toFixed(5) + ' km/h';
+      setResult(speedInKmPerHour);
+    } else if (selectedSpeedUnitf === 'km/h' && selectedSpeedUnitt === 'mph') {
+      // Convert kilometers per hour to miles per hour
+      const speedInMilesPerHour = (speedValue / 1.60934).toFixed(2) + ' mph';
+      setResult(speedInMilesPerHour);
+    } else if (selectedSpeedUnitf === 'mph' && selectedSpeedUnitt === 'm/s') {
+      // Convert miles per hour to meters per second
+      const speedInMetersPerSecond = (speedValue * 0.44704).toFixed(2) + ' m/s';
+      setResult(speedInMetersPerSecond);
+    } else if (selectedSpeedUnitf === 'm/s' && selectedSpeedUnitt === 'mph') {
+      // Convert meters per second to miles per hour
+      const speedInMilesPerHour = (speedValue / 0.44704).toFixed(2) + ' mph';
+      setResult(speedInMilesPerHour);
+    } else if (selectedSpeedUnitf === 'km/h' && selectedSpeedUnitt === 'm/s') {
+        // Convert kilometers per hour to meters per second
+        const speedInMetersPerSecond = (speedValue * 1000).toFixed(3) + ' m/s';
+        setResult(speedInMetersPerSecond);
+    } else if (selectedSpeedUnitf === 'm/s' && selectedSpeedUnitt === 'km/h') {
+      // Convert meters per second to kilometers per hour
+      const speedInKmPerHour = (speedValue / 0.27778).toFixed(2) + ' km/h';
+      setResult(speedInKmPerHour);
+    } else {
+      // Default case when units are not matched
+      setResult('Invalid conversion');
     }
+  }
+  
+  
+  
+  
+                
+                
+           
+               
+             
+     
 
     const navigateToResultScreen = () => {
       // Navigate to 'ResultScreen' and pass the 'result' as a parameter
@@ -76,15 +104,10 @@ const Select = () => {
                 </StyledView>
                 <StyledView className=''>
                     <StyledTextInput className='flex-3 border-2  border-black rounded-md p-2 '
-                    keyboardType="numeric"
-                    placeholder='Enter value' 
-                    onChangeText={(value) => setSpeedValue(value)}
-                  
-                    
-                    >
-                
-                    
-                    </StyledTextInput>
+                      keyboardType="numeric"
+                      placeholder='Enter value' 
+                      onChangeText={(value) => setSpeedValue(value)}>
+                   </StyledTextInput>
                 </StyledView>
             </StyledView>
 
@@ -99,13 +122,6 @@ const Select = () => {
                         value={selectedSpeedUnitt}
                     />
                 </StyledView>
-                {/* <StyledView className='p-2'>
-                    <StyledTextInput className='flex-3 border-2  border-black rounded-md p-2 '
-                    keyboardType="numeric"
-                    placeholder='Enter value'>
-                    value={secondval}
-                    </StyledTextInput>
-                </StyledView> */}
             </StyledView>
 
             
