@@ -15,6 +15,7 @@ const Final = ({ route }) => {
         <StyledText className=' font- font-semibold text-2xl pt-6'>{result}</StyledText>
         </StyledView>
        
+    
     </StyledView>
      );
 }

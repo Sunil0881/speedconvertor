@@ -28,18 +28,19 @@ const Main = () => {
     }
 
     return (
-        <StyledView className=' bg-orange-100 h-screen flex justify-center pb-36'>
-            <StyledText className='text-center text-2xl pb-16'>Choose your option</StyledText>
-              <TouchableOpacity
-            style={{ backgroundColor: 'orange', borderRadius: 10, padding: 8, alignItems: 'center', marginHorizontal: 72, marginTop: 20 }} onPress={navigateToweight}>
-            <StyledText style={{ color: 'white', fontSize: 18 }}>Weight Conversion</StyledText>
-            </TouchableOpacity>     
-            <TouchableOpacity
-            style={{ backgroundColor: 'orange', borderRadius: 10, padding: 8, alignItems: 'center', marginHorizontal: 72, marginTop: 20 }} onPress={navigateTospeed}>
-            <StyledText style={{ color: 'white', fontSize: 18 }}>Speed Conversion</StyledText>
-            </TouchableOpacity>   
-           
-        </StyledView>
+        <StyledView className=' bg-green-100 h-screen flex justify-center pb-36'  >
+        <StyledText className='text-center text-2xl pb-8'>What do you want to convert?</StyledText>
+          <TouchableOpacity
+        style={{ backgroundColor: 'rgb(96, 187, 34)',  borderWidth: 1, borderColor: '#ffffff', borderRadius: 10, padding: 8, alignItems: 'center', elevation: 10, marginHorizontal: 72, marginTop: 20 }} onPress={navigateToweight}>
+        <StyledText className=' text-2xl text-white'>Weight ⚖️</StyledText>
+        </TouchableOpacity>     
+        <TouchableOpacity
+        style={{ backgroundColor: 'orange', borderRadius: 10,  borderWidth: 1, borderColor: '#ffffff', padding: 8, alignItems: 'center', elevation: 10, marginHorizontal: 72, marginTop: 20 }} onPress={navigateTospeed}>
+        <StyledText className=' text-2xl text-white'>Speed ⌛</StyledText>
+        </TouchableOpacity>
+        
+
+    </StyledView>
      );
 }
  
