@@ -1,7 +1,9 @@
 import React from 'react';
-import {  Text,TouchableOpacity, Button, TextInput, View } from 'react-native';
+import {  Text, TouchableOpacity, Button, TextInput, View, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styled } from 'nativewind';
+
+
 
 
 const  StyledView = styled(View);
@@ -35,7 +37,8 @@ const Main = () => {
             <TouchableOpacity
             style={{ backgroundColor: 'orange', borderRadius: 10, padding: 8, alignItems: 'center', marginHorizontal: 72, marginTop: 20 }} onPress={navigateTospeed}>
             <StyledText style={{ color: 'white', fontSize: 18 }}>Speed Conversion</StyledText>
-            </TouchableOpacity>      
+            </TouchableOpacity>   
+           
         </StyledView>
      );
 }
