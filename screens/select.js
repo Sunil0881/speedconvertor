@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
-
+import bg from "../assets/bg1.jpg";
 import {  Text,TouchableOpacity, Button, TextInput, View } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import { useNavigation } from '@react-navigation/native';
+import { ImageBackground } from 'react-native';
 
 
 import { styled } from 'nativewind';
@@ -180,47 +181,52 @@ const Select = () => {
    
 
   return ( 
-        <StyledView className='p-2 bg-orange-100 h-screen flex justify-center pb-32'>
-            <StyledText className='text-center text-2xl pb-16'>Choose your option</StyledText>
-            <StyledText className=' '>Convert from: </StyledText>
-            <StyledView className=" flex flex-row  p-2" >
-                <StyledView className='flex-1'>
-                    <RNPickerSelect className=" "
-                        placeholder={{ label: 'Select speed unit', value: null }}
-                        items={speedUnitOptions}
-                        onValueChange={(value) => setSelectedSpeedUnitf(value)}
-                        
-                    />
-                </StyledView>
-                <StyledView className=''>
-                    <StyledTextInput className='flex-3 border-2  border-black rounded-md p-2 '
-                      keyboardType="numeric"
-                      placeholder='Enter value' 
-                      onChangeText={(value) => setSpeedValue(value)}>
-                   </StyledTextInput>
-                </StyledView>
+    <ImageBackground source={bg} style={{width: '100%', height: '100%'}}>
+
+    <StyledView className=' h-screen p-2 flex justify-center pb-32'>
+      <StyledView className=' bg-white p-2   rounded-lg pt-6 pb-6' style={{elevation: 10}}>
+        <StyledText className='text-center font-medium text-3xl pb-16'>Choose your option</StyledText>
+        <StyledText className=' text-xl pl-2 '>Convert from: </StyledText>
+        <StyledView className=" flex flex-row gap-4  p-2" >
+            <StyledView className='flex-1 border-2 border-black rounded-lg'>
+                <RNPickerSelect className="  "
+                    placeholder={{ label: 'Select speed unit', color:"red", value: null }}
+                    items={speedUnitOptions}
+                    onValueChange={(value) => setSelectedSpeedUnitf(value)}
+                    
+                />
             </StyledView>
-
-
-            <StyledText>Convert to: </StyledText>
-            <StyledView className="p-2" >
-                <StyledView className=''>
-                    <RNPickerSelect
-                        placeholder={{ label: 'Select speed unit', value: null }}
-                        items={speedUnitOptions}
-                        onValueChange={(value) => setSelectedSpeedUnitt(value)}
-                        value={selectedSpeedUnitt}
-                    />
-                </StyledView>
+            <StyledView className=''>
+                <StyledTextInput className='flex-3 border-2  border-black rounded-lg p-4 '
+                  keyboardType="numeric"
+                  placeholder='Enter value' 
+                  onChangeText={(value) => setSpeedValue(value)}>
+               </StyledTextInput>
             </StyledView>
-
-            
-            <TouchableOpacity
-            style={{ backgroundColor: 'orange', borderRadius: 10, padding: 8, alignItems: 'center', marginHorizontal: 96, marginTop: 20 }} onPress={navigateToResultScreen}>
-            <StyledText style={{ color: 'white', fontSize: 18 }}>Next</StyledText>
-            </TouchableOpacity>            
-            
         </StyledView>
+
+
+        <StyledText className='pl-2 text-xl'>Convert to: </StyledText>
+        <StyledView className="p-2" >
+            <StyledView className='border-2  border-black rounded-lg'>
+                <RNPickerSelect
+                    placeholder={{ label: 'Select speed unit', color:"red", value: null }}
+                    items={speedUnitOptions}
+                    onValueChange={(value) => setSelectedSpeedUnitt(value)}
+                    value={selectedSpeedUnitt}
+                />
+            </StyledView>
+        </StyledView>
+
+        
+      <TouchableOpacity
+        style={{ backgroundColor: '#F99595', borderRadius: 10, padding: 8, alignItems: 'center', elevation: 10, marginHorizontal: 96, marginTop: 20 }} onPress={navigateToResultScreen}>
+        <StyledText style={{ fontSize: 18 }}>Next</StyledText>
+      </TouchableOpacity>           
+      </StyledView>  
+    </StyledView>
+
+</ImageBackground>
      );
 }
  

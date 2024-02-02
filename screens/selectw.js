@@ -3,6 +3,9 @@ import {  Text,TouchableOpacity, Button, TextInput, View } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import { useNavigation } from '@react-navigation/native';
 import { styled } from 'nativewind';
+import bg from "../assets/bg1.jpg";
+import { ImageBackground } from 'react-native';
+
 
 
 const  StyledView = styled(View);
@@ -54,20 +57,22 @@ const Selectw = () => {
   
 
     return ( 
-        <StyledView className='p-2 bg-green-50 h-screen flex justify-center pb-32'>
-        <StyledText className='text-center text-2xl pb-16'>Choose your option</StyledText>
-        <StyledText className=' '>Convert from: </StyledText>
-        <StyledView className=" flex flex-row  p-2" >
-            <StyledView className='flex-1'>
-                <RNPickerSelect className=" "
-                    placeholder={{ label: 'Select weight unit', value: null }}
+      <ImageBackground source={bg} style={{width: '100%', height: '100%'}}>
+      <StyledView className=' h-screen p-2 flex justify-center pb-32'>
+      <StyledView className=' bg-white p-2   rounded-lg pt-6 pb-6' style={{elevation: 10}}>
+        <StyledText className='text-center font-medium text-3xl pb-16'>Choose your option</StyledText>
+        <StyledText className=' pl-2 text-xl '>Convert from: </StyledText>
+        <StyledView className=" flex gap-4 flex-row p-2" >
+            <StyledView className='flex-1 border-2  border-black rounded-lg'>
+                <RNPickerSelect className="  "
+                    placeholder={{ label: 'Select weight unit', color:"red", value: null }}
                     items={weightUnitOptions}
                     onValueChange={(value) => setSelectedWeightUnitf(value)}
                     
                 />
             </StyledView>
             <StyledView className=''>
-                <StyledTextInput className='flex-3 border-2  border-black rounded-md p-2 '
+                <StyledTextInput className='flex-3 border-2  border-black rounded-lg p-4 '
                   keyboardType="numeric"
                   placeholder='Enter value' 
                   onChangeText={(value) => setWeightValue(value)}>
@@ -76,11 +81,11 @@ const Selectw = () => {
         </StyledView>
 
 
-        <StyledText>Convert to: </StyledText>
+        <StyledText className=' pl-2 text-xl'>Convert to: </StyledText>
         <StyledView className="p-2" >
-            <StyledView className=''>
+            <StyledView className=' border-2  border-black rounded-lg'>
                 <RNPickerSelect
-                    placeholder={{ label: 'Select weight unit', value: null }}
+                    placeholder={{ label: 'Select weight unit', color:"red", value: null }}
                     items={weightUnitOptions}
                     onValueChange={(value) => setSelectedWeightUnitt(value)}
                     value={selectedWeightUnitt}
@@ -89,13 +94,13 @@ const Selectw = () => {
         </StyledView>
 
         
-        <TouchableOpacity
-        style={{ backgroundColor: 'rgb(96, 187, 34)', borderRadius: 10, padding: 8, alignItems: 'center', marginHorizontal: 96, marginTop: 20 }} onPress={navigateToResultScreen}>
-        <StyledText style={{ color: 'white', fontSize: 18 }}>Next</StyledText>
-        </TouchableOpacity>            
-        
+      <TouchableOpacity
+        style={{ backgroundColor: '#F99595', borderRadius: 10, padding: 8, alignItems: 'center', elevation: 10, marginHorizontal: 96, marginTop: 20 }} onPress={navigateToResultScreen}>
+        <StyledText style={{ fontSize: 18 }}>Next</StyledText>
+      </TouchableOpacity>           
+      </StyledView>  
     </StyledView>
-      
+</ImageBackground>
      );
 }
  
